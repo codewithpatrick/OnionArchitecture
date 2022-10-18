@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application;
 
 namespace WebApi
 {
@@ -26,8 +27,6 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
             services.AddSwaggerGen(options =>
             {
                 options.IncludeXmlComments($@"{System.AppDomain.CurrentDomain.BaseDirectory}\OnionArchitecture.xml");
@@ -37,6 +36,10 @@ namespace WebApi
                     Title = "OnionArchitecture",
                 });
             });
+
+            services.AddApplication();
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
