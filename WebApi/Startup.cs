@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application;
+using Persistence;
 
 namespace WebApi
 {
@@ -38,6 +39,7 @@ namespace WebApi
             });
 
             services.AddApplication();
+            services.AddPersistence(Configuration);
 
             services.AddControllers();
         }
